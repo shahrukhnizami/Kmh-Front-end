@@ -1,0 +1,26 @@
+@import "tailwindcss";
+.content {
+  position: relative;
+  line-height: 20px;
+  color: #666;
+  background-color: #F9F9F9;
+  border: 1px solid #F1F1F1;
+  margin-bottom: 0;
+  font-family: arial, helvetica, sans-serif, verdana, "Open Sans";
+  font-size: small;
+  padding: 20px;}
+  .content p {
+    margin: 10px 0 0 0;
+    color: #666;
+    
+}
+@keyframes marquee {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-marquee {
+  display: inline-block;
+  animation: marquee 20s linear infinite;
+  padding-left: 100%;
+}
