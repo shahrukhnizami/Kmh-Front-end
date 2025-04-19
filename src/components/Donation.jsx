@@ -46,7 +46,7 @@ const Donation = () => {
         currency: 'ZAR',
       };
   
-      const donationRes = await fetch(`${config.API_BASE_URL}/api/v1/donation`, {
+      const  donationRes = await fetch(`${config.API_BASE_URL}/api/v1/donation`, {
         method: "POST",
         headers: { "Content-Type": "application/json" },
         body: JSON.stringify({
