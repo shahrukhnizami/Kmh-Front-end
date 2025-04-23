@@ -124,15 +124,15 @@ const Donation = () => {
   
   <div className="container mx-auto max-w-6xl px-4 relative z-10">
     <div className="text-center mb-12">
-      <span className="inline-block px-4 py-2 bg-blue-100 text-blue-800 rounded-full text-sm font-semibold mb-4">
+      <span className="inline-block px-4 py-2 bg-blue-100 text-[#053e69] rounded-full text-sm font-semibold mb-4">
         Making a Difference Together
       </span>
       <h1 className="text-4xl md:text-5xl font-bold text-[#053e69] mb-4">
-        Support <span className="text-blue-600">Kutiyana Memon Hospital</span>
+        Support <span className="text-[#053e69]">Kutiyana Memon Hospital</span>
       </h1>
       <p className="text-lg text-gray-700 max-w-2xl mx-auto">
         Your generosity helps us provide life-saving healthcare to thousands every year. 
-        <span className="block mt-2 text-blue-600 font-medium">100% of donations go directly to patient care.</span>
+        <span className="block mt-2 text-[#053e69] font-medium">100% of donations go directly to patient care.</span>
       </p>
     </div>
 
@@ -140,7 +140,7 @@ const Donation = () => {
       {/* Donation Form Card */}
       <div className="w-full lg:w-2/3 bg-white p-8 rounded-2xl shadow-xl border border-blue-200 transform hover:shadow-2xl transition-shadow duration-300">
         <div className="flex items-center mb-6">
-          <div className="bg-gradient-to-r from-blue-500 to-blue-600 p-3 rounded-full mr-4 shadow-md">
+          <div className="bg-gradient-to-r from-[#053e69] to-[#053e69] p-3 rounded-full mr-4 shadow-md">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
             </svg>
@@ -307,7 +307,7 @@ const Donation = () => {
             <button
               type="submit"
               disabled={isProcessing}
-              className="w-full bg-gradient-to-r from-blue-600 to-blue-700 text-white font-semibold py-4 rounded-lg hover:opacity-90 transition-all duration-200 flex items-center justify-center shadow-lg hover:shadow-xl"
+              className="w-full bg-gradient-to-r from-[#053e69] to-[#053e69] text-white font-semibold py-4 rounded-lg hover:opacity-90 transition-all duration-200 flex items-center justify-center shadow-lg hover:shadow-xl"
             >
               {isProcessing ? (
                 <>
@@ -337,7 +337,7 @@ const Donation = () => {
       <div className="w-full lg:w-1/3 space-y-6">
         <div className="bg-white p-6 rounded-2xl shadow-lg border border-blue-100">
           <h3 className="text-xl font-bold text-[#053e69] mb-4 flex items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2 text-[#053e69]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
             </svg>
             Your Impact
@@ -364,7 +364,7 @@ const Donation = () => {
           </ul>
         </div>
 
-        <div className="bg-blue-600 p-6 rounded-2xl shadow-lg text-white">
+        <div className="bg-[#053e69] p-6 rounded-2xl shadow-lg text-white">
           <h3 className="text-xl font-bold mb-4 flex items-center">
             <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
@@ -372,24 +372,24 @@ const Donation = () => {
             Monthly Giving
           </h3>
           <p className="mb-4">Consider becoming a monthly donor to provide sustained support for our healthcare services.</p>
-          <button className="w-full bg-white text-blue-600 font-semibold py-3 rounded-lg hover:bg-blue-50 transition-colors duration-200">
+          <button className="w-full bg-white text-[#053e69] font-semibold py-3 rounded-lg hover:bg-blue-50 transition-colors duration-200">
             Set Up Monthly Donation
           </button>
         </div>
 
-        <div className="bg-white p-6 rounded-2xl shadow-lg border border-blue-100">
+        <div className="bg-white p-6 rounded-2xl shadow-lg border border-[#053e69]">
           <h3 className="text-xl font-bold text-[#053e69] mb-4 flex items-center">
-            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2 text-blue-500" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+            <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2 text-[#053e69]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
             </svg>
             Testimonials
           </h3>
           <div className="space-y-4">
-            <blockquote className="border-l-4 border-blue-300 pl-4 italic text-gray-700">
+            <blockquote className="border-l-4 border-[#053e69] pl-4 italic text-gray-700">
               "The hospital provided excellent care for my mother when we couldn't afford treatment elsewhere. Donations truly make a difference."
               <footer className="mt-2 text-sm font-medium text-gray-600">- Ahmed R., Karachi</footer>
             </blockquote>
-            <blockquote className="border-l-4 border-blue-300 pl-4 italic text-gray-700">
+            <blockquote className="border-l-4 border-[#053e69] pl-4 italic text-gray-700">
               "As a regular donor, I've seen firsthand how my contributions help save lives in our community."
               <footer className="mt-2 text-sm font-medium text-gray-600">- Fatima S., Donor since 2018</footer>
             </blockquote>
