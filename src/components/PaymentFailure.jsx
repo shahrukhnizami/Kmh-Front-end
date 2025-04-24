@@ -36,12 +36,12 @@ const PaymentFailure = () => {
     : null;
 
   return (
-    <div className="min-h-screen bg-gradient-to-b from-red-50 to-white flex flex-col items-center justify-center p-4">
+    <div className="min-h-screen  from-red-50 to-white flex flex-col items-center justify-center p-4">
       {/* Error Card */}
       <div className="max-w-lg w-full bg-white rounded-2xl shadow-xl overflow-hidden p-8 text-center transform transition-all hover:shadow-2xl">
         {/* Animated Error Icon */}
         <div className="relative mx-auto mb-6">
-          <div className="absolute inset-0 bg-red-100 rounded-full opacity-0 animate-ping-slow"></div>
+          <div className="absolute inset-0  rounded-full opacity-0 animate-ping-slow"></div>
           <div className="mx-auto flex items-center justify-center h-20 w-20 rounded-full bg-red-100">
             <XCircle className="h-12 w-12 text-red-600" strokeWidth={1.5} />
           </div>
@@ -131,7 +131,7 @@ const PaymentFailure = () => {
       <div className="mt-8 text-center max-w-lg">
         <div className="bg-white p-4 rounded-xl shadow-sm border border-gray-200">
           <h3 className="text-lg font-semibold text-gray-800 mb-2 flex items-center justify-center">
-            <Phone className="h-5 w-5 mr-2 text-blue-500" />
+            <Phone className="h-5 w-5 mr-2 text-[#053e69]" />
             Need Immediate Help?
           </h3>
           <p className="text-gray-600 mb-3">
@@ -140,13 +140,13 @@ const PaymentFailure = () => {
           <div className="space-y-2">
             <a 
               href="tel:+922132315376" 
-              className="inline-block px-4 py-2 bg-blue-600 text-white rounded-lg hover:bg-blue-700 transition-colors"
+              className="inline-block px-4 py-2 bg-[#053e69] text-white rounded-lg hover:bg-[#053e69] transition-colors"
             >
               Call: +92 21 32315376
             </a>
             <a 
               href="/contact" 
-              className="inline-block px-4 py-2 border border-blue-600 text-blue-600 rounded-lg hover:bg-blue-50 transition-colors ml-2"
+              className="inline-block px-4 py-2 border border-[#053e69] text-[#053e69] rounded-lg hover:bg-blue-50 transition-colors ml-2"
             >
               Contact Form
             </a>
