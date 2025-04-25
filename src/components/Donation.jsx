@@ -82,15 +82,15 @@ const Donation = () => {
       localStorage.setItem('donationId', donationData?.data?._id || `donation-${referenceNumber}`);
       localStorage.setItem('donationMerchantPaymentId', paymentData.m_payment_id);
       localStorage.setItem('donationPfPaymentId', "");
-
       redirectToPayFast(paymentData);
     } catch (err) {
       console.error("Donation error:", err);
       setError(err.message || "An unexpected error occurred. Please try again.");
       setSubmitted(true);
-    } finally {
       setIsProcessing(false);
+
     }
+     
   };
 
   const redirectToPayFast = (paymentData) => {
@@ -106,12 +106,15 @@ const Donation = () => {
       form.appendChild(input);
     });
 
+    
     document.body.appendChild(form);
     form.submit();
+
   };
 
   return (
     <section className="relative bg-gradient-to-br from-blue-50 to-white py-16 overflow-hidden">
+      
       {/* Decorative elements */}
       <div className="absolute top-0 left-0 w-full h-full opacity-10">
         <div className="absolute top-20 left-10 w-40 h-40 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
