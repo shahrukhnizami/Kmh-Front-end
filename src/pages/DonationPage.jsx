@@ -9,11 +9,11 @@ import KMHSlider from '../components/KMHSlider';
 const DonationPage = () => {
   return (
     <div>
-     <Header/>
-     <KMHSlider/>
+     {/* <Header/> */}
+     {/* <KMHSlider/> */}
      <Payment/>
      {/* <Footer/> */}
-     <Footer1/>
+     {/* <Footer1/> */}
 
     </div>
   );

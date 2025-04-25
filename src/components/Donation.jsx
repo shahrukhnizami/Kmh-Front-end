@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import config from '../config';
+import { ArrowBigLeft, Home } from 'lucide-react';
+import { useNavigate } from 'react-router';
 
 const Donation = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -7,6 +9,7 @@ const Donation = () => {
   const [selectedType, setSelectedType] = useState('');
   const [isProcessing, setIsProcessing] = useState(false);
   const [error, setError] = useState(null);
+  const navigate = useNavigate();
 
 
   const handleSubmit = async (e) => {
@@ -117,13 +120,19 @@ const Donation = () => {
   return (
     <section className="relative bg-gradient-to-br py-16 overflow-hidden">
       {/* Decorative elements */}
-      <div className="absolute top-0 left-0 w-full h-full opacity-10">
-        <div className="absolute top-20 left-10 w-40 h-40 bg-[#053e69] rounded-full mix-blend-multiply filter blur-xl"></div>
-        <div className="absolute bottom-10 right-10 w-60 h-60 bg-[#053e69] rounded-full mix-blend-multiply filter blur-xl"></div>
-      </div>
+
 
       <div className="container mx-auto max-w-6xl px-4 relative z-10">
+        <button
+                    onClick={() => navigate('/')}
+                    className="flex items-center justify-center px-6 py-3 bg-[#053e69] text-white rounded-lg hover:bg-[#005b9f] transition-colors shadow-md hover:shadow-lg"
+                  >
+                    {/* <Home className="h-5 w-5 mr-2" /> */}
+                    <ArrowBigLeft className="h-5 w-5 mr-2" />
+                    Back to Home
+                  </button>
         <div className="text-center mb-12">
+
           <span className="inline-block px-4 py-2 bg-blue-100 text-[#053e69] rounded-full text-sm font-semibold mb-4">
             Making a Difference Together
           </span>
@@ -311,20 +320,47 @@ const Donation = () => {
                     }`}
                 >
                   {isProcessing ? (
-                    <>
-                      <svg className="animate-spin -ml-1 mr-3 h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                        <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                        <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                    <div className="flex items-center">
+                      <svg
+                        className="animate-spin h-5 w-5 mr-3 text-white"
+                        xmlns="http://www.w3.org/2000/svg"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                      >
+                        <circle
+                          className="opacity-25"
+                          cx="12"
+                          cy="12"
+                          r="10"
+                          stroke="currentColor"
+                          strokeWidth="4"
+                        ></circle>
+                        <path
+                          className="opacity-75"
+                          fill="currentColor"
+                          d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"
+                        ></path>
                       </svg>
-                      Processing Your Donation...
-                    </>
+                      Processing...
+                    </div>
                   ) : (
-                    <>
-                      <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6" />
+                    <div className="flex items-center">
+                      <svg
+                        xmlns="http://www.w3.org/2000/svg"
+                        className="h-5 w-5 mr-2"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          strokeWidth={2}
+                          d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
+                        />
                       </svg>
                       Donate Now
-                    </>
+                    </div>
                   )}
                 </button>
                 <p className="mt-3 text-center text-xs text-gray-500">
