@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import config from '../config';
 import { ArrowBigLeft, Heart, Shield, HandCoins, Calendar, MessageSquare } from 'lucide-react';
-import { useNavigate } from 'react-router';
+import { Link, useNavigate } from 'react-router';
 
 const Donation = () => {
   const [submitted, setSubmitted] = useState(false);
@@ -133,7 +133,12 @@ const Donation = () => {
             Making a Difference Together
           </span>
           <h1 className="text-4xl md:text-5xl font-bold text-[#053e69] mb-4">
-            Support <span className="text-blue-600">Kutiyana Memon Hospital</span>
+            Support <Link
+  to="/" 
+  className="text-blue-600 hover:text-blue-800 hover:cursor-pointer transition-colors duration-200"
+>
+  Kutiyana Memon Hospital
+</Link>
           </h1>
           <p className="text-lg text-gray-700 max-w-2xl mx-auto">
             Your generosity helps us provide life-saving healthcare to thousands every year.
