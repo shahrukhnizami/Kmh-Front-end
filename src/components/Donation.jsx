@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import config from '../config';
-import { ArrowBigLeft, Home } from 'lucide-react';
+import { ArrowBigLeft, Heart, Shield, HandCoins, Calendar, MessageSquare } from 'lucide-react';
 import { useNavigate } from 'react-router';
 
 const Donation = () => {
@@ -10,7 +10,6 @@ const Donation = () => {
   const [isProcessing, setIsProcessing] = useState(false);
   const [error, setError] = useState(null);
   const navigate = useNavigate();
-
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -75,14 +74,14 @@ const Donation = () => {
       // Attach donation record ID
       paymentData.custom_int1 = Number(Date.now());
 
-      // ✅ Save PayFast & donation details in localStorage
+      // Save PayFast & donation details in localStorage
       localStorage.setItem('donationAmount', paymentData.amount);
       localStorage.setItem('donationType', selectedType);
       localStorage.setItem('donationMessage', paymentData.item_description);
       localStorage.setItem('donationDate', new Date().toISOString());
       localStorage.setItem('donationId', donationData?.data?._id || `donation-${referenceNumber}`);
       localStorage.setItem('donationMerchantPaymentId', paymentData.m_payment_id);
-      localStorage.setItem('donationPfPaymentId', ""); // This will be updated later via webhook (optional)
+      localStorage.setItem('donationPfPaymentId', "");
 
       redirectToPayFast(paymentData);
     } catch (err) {
@@ -93,9 +92,6 @@ const Donation = () => {
       setIsProcessing(false);
     }
   };
-
-
-
 
   const redirectToPayFast = (paymentData) => {
     const form = document.createElement("form");
@@ -108,51 +104,49 @@ const Donation = () => {
       input.name = key;
       input.value = value;
       form.appendChild(input);
-
     });
 
     document.body.appendChild(form);
     form.submit();
   };
 
-  const suggestedAmounts = [500, 1000, 2000, 5000, 10000];
-
   return (
-    <section className="relative bg-gradient-to-br py-16 overflow-hidden">
+    <section className="relative bg-gradient-to-br from-blue-50 to-white py-16 overflow-hidden">
       {/* Decorative elements */}
-
+      <div className="absolute top-0 left-0 w-full h-full opacity-10">
+        <div className="absolute top-20 left-10 w-40 h-40 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
+        <div className="absolute top-40 right-20 w-48 h-48 bg-[#053e69] rounded-full mix-blend-multiply filter blur-xl opacity-50 animate-blob animation-delay-2000"></div>
+        <div className="absolute bottom-20 left-1/2 w-32 h-32 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
+      </div>
 
       <div className="container mx-auto max-w-6xl px-4 relative z-10">
         <button
-                    onClick={() => navigate('/')}
-                    className="flex items-center justify-center px-6 py-3 bg-[#053e69] text-white rounded-lg hover:bg-[#005b9f] transition-colors shadow-md hover:shadow-lg"
-                  >
-                    {/* <Home className="h-5 w-5 mr-2" /> */}
-                    <ArrowBigLeft className="h-5 w-5 mr-2" />
-                    Back to Home
-                  </button>
-        <div className="text-center mb-12">
+          onClick={() => navigate('/')}
+          className="flex items-center justify-center px-6 py-3 bg-[#053e69] text-white rounded-lg hover:bg-[#005b9f] transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1"
+        >
+          <ArrowBigLeft className="h-5 w-5 mr-2" />
+          Back to Home
+        </button>
 
-          <span className="inline-block px-4 py-2 bg-blue-100 text-[#053e69] rounded-full text-sm font-semibold mb-4">
+        <div className="text-center mb-12 mt-8">
+          <span className="inline-block px-4 py-2 bg-blue-100 text-[#053e69] rounded-full text-sm font-semibold mb-4 shadow-sm">
             Making a Difference Together
           </span>
           <h1 className="text-4xl md:text-5xl font-bold text-[#053e69] mb-4">
-            Support <span className="text-[#053e69]">Kutiyana Memon Hospital</span>
+            Support <span className="text-blue-600">Kutiyana Memon Hospital</span>
           </h1>
           <p className="text-lg text-gray-700 max-w-2xl mx-auto">
             Your generosity helps us provide life-saving healthcare to thousands every year.
-            <span className="block mt-2 text-[#053e69] font-medium">100% of donations go directly to patient care.</span>
+            <span className="block mt-2 text-blue-600 font-medium">100% of donations go directly to patient care.</span>
           </p>
         </div>
 
         <div className="flex flex-col lg:flex-row gap-10 items-start">
           {/* Donation Form Card */}
-          <div className="w-full lg:w-2/3 bg-white p-8 rounded-2xl shadow-xl border border-[#053e69] transform hover:shadow-2xl transition-shadow duration-300">
+          <div className="w-full lg:w-2/3 bg-white p-8 rounded-2xl shadow-xl border border-blue-100 transform hover:shadow-2xl transition-all duration-300">
             <div className="flex items-center mb-6">
-              <div className="bg-gradient-to-r from-[#053e69] to-[#053e69] p-3 rounded-full mr-4 shadow-md">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-8 w-8 text-white" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
+              <div className="bg-gradient-to-r from-[#053e69] to-blue-600 p-3 rounded-full mr-4 shadow-md">
+                <Heart className="h-8 w-8 text-white" fill="currentColor" />
               </div>
               <div>
                 <h2 className="text-2xl font-bold text-[#053e69]">Make a Donation</h2>
@@ -185,7 +179,7 @@ const Donation = () => {
                       type="text"
                       id="full_name"
                       name="full_name"
-                      className="w-full pl-10 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#053e69] focus:border-transparent"
+                      className="w-full pl-10 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#053e69] focus:border-transparent transition-all duration-200"
                       placeholder="Your full name"
                       required
                     />
@@ -206,7 +200,7 @@ const Donation = () => {
                       type="email"
                       id="email"
                       name="email"
-                      className="w-full pl-10 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#053e69] focus:border-transparent"
+                      className="w-full pl-10 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#053e69] focus:border-transparent transition-all duration-200"
                       placeholder="your.email@example.com"
                       required
                     />
@@ -218,21 +212,33 @@ const Donation = () => {
                 <label className="block text-sm font-medium text-gray-700 mb-1">
                   Donation Type <span className="text-red-500">*</span>
                 </label>
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-3">
+                <div className="grid grid-cols-1  sm:grid-cols-2 gap-3">
                   {[
-                    { type: 'Sadaqah', icon: 'M12 19l9 2-9-18-9 18 9-2zm0 0v-8', desc: 'Voluntary charity with no restrictions' },
-                    { type: 'Zakat', icon: 'M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z', desc: 'Obligatory almsgiving for eligible Muslims' }
+                    { 
+                      type: 'Sadaqah', 
+                      icon: <Shield className="text-blue-950 h-5 w-5" />,
+                      desc: 'Voluntary charity with no restrictions',
+                      color: 'bg-gradient-to-r from-[#053e69] to-blue-600'
+                    },
+                    { 
+                      type: 'Zakat', 
+                      icon: <HandCoins className="text-blue-950 h-5 w-5" />,
+                      desc: 'Obligatory almsgiving for eligible Muslims',
+                      color: 'bg-gradient-to-r from-[#053e69] to-blue-600'
+                    }
                   ].map((item) => (
                     <div
                       key={item.type}
-                      className={`p-4 border rounded-lg cursor-pointer transition-all duration-200 ${selectedType === item.type ? 'border-[#053e69] bg-blue-50' : 'border-gray-300 hover:border-[#053e69]'}`}
+                      className={`p-4 border rounded-lg cursor-pointer transition-all duration-200 ${selectedType === item.type 
+                        ? `border-transparent bg-gradient-to-r ${item.color} text-white shadow-md` 
+                        : 'border-gray-300 hover:border-[#053e69] hover:shadow-md'}`}
                       onClick={() => setSelectedType(item.type)}
                     >
                       <div className="flex items-start">
-                        <div className={`p-2 rounded-full mr-3 ${selectedType === item.type ? 'bg-blue-100 text-[blue-600]' : 'bg-gray-100 text-gray-600'}`}>
-                          <svg xmlns="http://www.w3.org/2000/svg" className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                            <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d={item.icon} />
-                          </svg>
+                        <div className={`p-2 rounded-full mr-3 ${selectedType === item.type 
+                          ? 'bg-white bg-opacity-20 text-white' 
+                          : 'bg-gray-100 text-gray-600'}`}>
+                          {item.icon}
                         </div>
                         <div>
                           <div className="flex items-center">
@@ -246,11 +252,13 @@ const Donation = () => {
                               onChange={() => setSelectedType(item.type)}
                               required
                             />
-                            <label htmlFor={item.type} className="ml-2 block text-sm font-medium text-gray-700">
+                            <label htmlFor={item.type} className={`ml-2 block text-sm font-medium ${selectedType === item.type ? 'text-white' : 'text-gray-700'}`}>
                               {item.type}
                             </label>
                           </div>
-                          <p className="mt-1 text-xs text-gray-500">{item.desc}</p>
+                          <p className={`mt-1 text-xs ${selectedType === item.type ? 'text-white text-opacity-80' : 'text-gray-500'}`}>
+                            {item.desc}
+                          </p>
                         </div>
                       </div>
                     </div>
@@ -267,9 +275,9 @@ const Donation = () => {
                     <button
                       key={amount}
                       type="button"
-                      className={`py-3 px-4 rounded-lg border text-sm font-medium transition-all ${donationAmount === amount.toString()
-                        ? 'bg-[#053e69] text-white border-[#053e69] shadow-md'
-                        : 'bg-white border-gray-300 hover:border-[#053e69] hover:text-[#053e69]'}`}
+                      className={`py-3 px-4 rounded-lg border text-sm font-medium transition-all duration-200 ${donationAmount === amount.toString()
+                        ? 'bg-gradient-to-r from-[#053e69] to-blue-600 text-white border-transparent shadow-md'
+                        : 'bg-white border-gray-300 hover:border-[#053e69] hover:text-[#053e69] hover:shadow-md'}`}
                       onClick={() => setDonationAmount(amount.toString())}
                     >
                       {amount.toLocaleString()}
@@ -286,7 +294,7 @@ const Donation = () => {
                     name="amount"
                     value={donationAmount}
                     onChange={(e) => setDonationAmount(e.target.value)}
-                    className="w-full pl-16 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#053e69] focus:border-transparent"
+                    className="w-full pl-16 px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#053e69] focus:border-transparent transition-all duration-200"
                     placeholder="Enter custom amount"
                     required
                     min="1"
@@ -302,9 +310,10 @@ const Donation = () => {
                   <textarea
                     id="message"
                     name="message"
-                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#053e69] focus:border-transparent"
+                    className="w-full px-4 py-3 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-[#053e69] focus:border-transparent transition-all duration-200"
                     rows="4"
                     placeholder="Would you like to dedicate this donation or add special instructions?"
+                    maxLength="200"
                   ></textarea>
                   <div className="absolute bottom-2 right-2 text-xs text-gray-400">
                     Max 200 characters
@@ -316,8 +325,7 @@ const Donation = () => {
                 <button
                   type="submit"
                   disabled={isProcessing}
-                  className={`w-full bg-gradient-to-r from-[#053e69] to-[#053e69] text-white font-semibold py-4 rounded-lg transition-all duration-200 flex items-center justify-center shadow-lg ${isProcessing ? 'opacity-75 cursor-not-allowed' : 'hover:opacity-90 hover:shadow-xl'
-                    }`}
+                  className={`w-full bg-gradient-to-r from-[#053e69] to-blue-600 text-white font-semibold py-4 rounded-lg transition-all duration-300 flex items-center justify-center shadow-lg hover:shadow-xl transform hover:-translate-y-1 ${isProcessing ? 'opacity-75 cursor-not-allowed' : 'hover:opacity-90'}`}
                 >
                   {isProcessing ? (
                     <div className="flex items-center">
@@ -345,20 +353,7 @@ const Donation = () => {
                     </div>
                   ) : (
                     <div className="flex items-center">
-                      <svg
-                        xmlns="http://www.w3.org/2000/svg"
-                        className="h-5 w-5 mr-2"
-                        fill="none"
-                        viewBox="0 0 24 24"
-                        stroke="currentColor"
-                      >
-                        <path
-                          strokeLinecap="round"
-                          strokeLinejoin="round"
-                          strokeWidth={2}
-                          d="M13 7h8m0 0v8m0-8l-8 8-4-4-6 6"
-                        />
-                      </svg>
+                      <Heart className="h-5 w-5 mr-2" fill="currentColor" />
                       Donate Now
                     </div>
                   )}
@@ -372,69 +367,97 @@ const Donation = () => {
 
           {/* Impact Sidebar */}
           <div className="w-full lg:w-1/3 space-y-6">
-            <div className="bg-white p-6 rounded-2xl shadow-lg border border-blue-100">
+            <div className="bg-white p-6 rounded-2xl shadow-lg border border-blue-100 transform hover:scale-[1.01] transition-transform duration-300">
               <h3 className="text-xl font-bold text-[#053e69] mb-4 flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2 text-[#053e69]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z" />
-                </svg>
+                <Heart className="h-6 w-6 mr-2 text-[#053e69]" fill="#053e69" />
                 Your Impact
               </h3>
               <ul className="space-y-4">
-                <li className="flex items-start">
-                  <svg className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-gray-700"><span className="font-semibold">PKR 1,000</span> can provide medicines for 5 patients</span>
-                </li>
-                <li className="flex items-start">
-                  <svg className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-gray-700"><span className="font-semibold">PKR 5,000</span> can cover a day's treatment for a child</span>
-                </li>
-                <li className="flex items-start">
-                  <svg className="h-5 w-5 text-green-500 mr-2 mt-0.5 flex-shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
-                  </svg>
-                  <span className="text-gray-700"><span className="font-semibold">PKR 10,000</span> can support emergency care for 2 patients</span>
-                </li>
+                {[
+                  { amount: "PKR 1,000", impact: "provide medicines for 5 patients" },
+                  { amount: "PKR 5,000", impact: "cover a day's treatment for a child" },
+                  { amount: "PKR 10,000", impact: "support emergency care for 2 patients" },
+                  { amount: "PKR 25,000", impact: "fund a life-saving surgery" }
+                ].map((item, index) => (
+                  <li key={index} className="flex items-start">
+                    <div className="bg-blue-100 p-2 rounded-full mr-3 flex-shrink-0">
+                      <svg className="h-5 w-5 text-[#053e69]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                        <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M5 13l4 4L19 7" />
+                      </svg>
+                    </div>
+                    <span className="text-gray-700">
+                      <span className="font-semibold">{item.amount}</span> can {item.impact}
+                    </span>
+                  </li>
+                ))}
               </ul>
             </div>
 
-            <div className="bg-[#053e69] p-6 rounded-2xl shadow-lg text-white">
+            <div className="bg-gradient-to-r from-[#053e69] to-blue-600 p-6 rounded-2xl shadow-lg text-white transform hover:scale-[1.01] transition-transform duration-300">
               <h3 className="text-xl font-bold mb-4 flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                </svg>
+                <Calendar className="h-6 w-6 mr-2" />
                 Monthly Giving
               </h3>
               <p className="mb-4">Consider becoming a monthly donor to provide sustained support for our healthcare services.</p>
-              <button className="w-full bg-white text-[#053e69] font-semibold py-3 rounded-lg hover:bg-blue-50 transition-colors duration-200">
+              <button className="w-full bg-white text-[#053e69] font-semibold py-3 rounded-lg hover:bg-blue-50 transition-all duration-300 flex items-center justify-center">
+                <Calendar className="h-5 w-5 mr-2" />
                 Set Up Monthly Donation
               </button>
             </div>
 
-            <div className="bg-white p-6 rounded-2xl shadow-lg border border-[#053e69]">
+            <div className="bg-white p-6 rounded-2xl shadow-lg border border-blue-100 transform hover:scale-[1.01] transition-transform duration-300">
               <h3 className="text-xl font-bold text-[#053e69] mb-4 flex items-center">
-                <svg xmlns="http://www.w3.org/2000/svg" className="h-6 w-6 mr-2 text-[#053e69]" fill="none" viewBox="0 0 24 24" stroke="currentColor">
-                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M17 8h2a2 2 0 012 2v6a2 2 0 01-2 2h-2v4l-4-4H9a1.994 1.994 0 01-1.414-.586m0 0L11 14h4a2 2 0 002-2V6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2v4l.586-.586z" />
-                </svg>
+                <MessageSquare className="h-6 w-6 mr-2 text-[#053e69]" />
                 Testimonials
               </h3>
               <div className="space-y-4">
-                <blockquote className="border-l-4 border-[#053e69] pl-4 italic text-gray-700">
-                  "The hospital provided excellent care for my mother when we couldn't afford treatment elsewhere. Donations truly make a difference."
-                  <footer className="mt-2 text-sm font-medium text-gray-600">- Ahmed R., Karachi</footer>
-                </blockquote>
-                <blockquote className="border-l-4 border-[#053e69] pl-4 italic text-gray-700">
-                  "As a regular donor, I've seen firsthand how my contributions help save lives in our community."
-                  <footer className="mt-2 text-sm font-medium text-gray-600">- Fatima S., Donor since 2018</footer>
-                </blockquote>
+                {[
+                  { 
+                    quote: "The hospital provided excellent care for my mother when we couldn't afford treatment elsewhere. Donations truly make a difference.",
+                    author: "Ahmed R., Karachi"
+                  },
+                  { 
+                    quote: "As a regular donor, I've seen firsthand how my contributions help save lives in our community.",
+                    author: "Fatima S., Donor since 2018"
+                  }
+                ].map((testimonial, index) => (
+                  <blockquote key={index} className="border-l-4 border-[#053e69] pl-4 italic text-gray-700 relative">
+                    <div className="absolute top-0 left-0 text-5xl text-[#053e69] opacity-20 font-serif">"</div>
+                    <p className="relative z-10 pl-4">{testimonial.quote}</p>
+                    <footer className="mt-2 text-sm font-medium text-gray-600">— {testimonial.author}</footer>
+                  </blockquote>
+                ))}
               </div>
             </div>
           </div>
         </div>
       </div>
+
+      {/* Animation styles */}
+      <style jsx>{`
+        @keyframes blob {
+          0% { transform: translate(0px, 0px) scale(1); }
+          33% { transform: translate(30px, -50px) scale(1.1); }
+          66% { transform: translate(-20px, 20px) scale(0.9); }
+          100% { transform: translate(0px, 0px) scale(1); }
+        }
+        .animate-blob {
+          animation: blob 7s infinite;
+        }
+        .animation-delay-2000 {
+          animation-delay: 2s;
+        }
+        .animation-delay-4000 {
+          animation-delay: 4s;
+        }
+        @keyframes fade-in {
+          from { opacity: 0; transform: translateY(10px); }
+          to { opacity: 1; transform: translateY(0); }
+        }
+        .animate-fade-in {
+          animation: fade-in 0.3s ease-out;
+        }
+      `}</style>
     </section>
   );
 };

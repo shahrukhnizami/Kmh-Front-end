@@ -65,7 +65,7 @@ const Header = () => {
         {/* Mobile Menu Button */}
         <button 
           onClick={toggleMobileMenu}
-          className="md:hidden text-[#053e69] focus:outline-none"
+          className="lg:hidden text-[#053e69] focus:outline-none"
           aria-label="Toggle menu"
         >
           <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
@@ -82,7 +82,7 @@ const Header = () => {
       <nav className="bg-[#053e69]">
         <div className="container mx-auto max-w-6xl">
           {/* Desktop Navigation */}
-          <ul className="hidden md:flex flex-wrap justify-between text-white text-sm font-medium py-3 px-2 space-x-1">
+          <ul className="hidden lg:flex flex-wrap justify-between text-white text-sm font-medium py-3 px-2 space-x-1">
             <li>
               <button 
                 onClick={() => handleNavigation("/")}
@@ -95,7 +95,7 @@ const Header = () => {
               <li key={link.path}>
                 <button
                   onClick={() => handleNavigation(link.path)}
-                  className="px-3 py-2 rounded-md transition-all duration-200 hover:bg-[#0088cc] hover:text-white block"
+                  className="px-1 py-2 rounded-md transition-all duration-200 hover:bg-[#0088cc] hover:text-white block"
                 >
                   {link.name}
                 </button>
@@ -113,7 +113,7 @@ const Header = () => {
 
           {/* Mobile Navigation */}
           {mobileMenuOpen && (
-            <ul className="md:hidden flex flex-col text-white text-sm font-medium py-2 px-4">
+            <ul className="lg:hidden flex flex-col text-white text-sm font-medium py-2 px-4">
               <li>
                 <button
                   onClick={() => handleNavigation("/")}

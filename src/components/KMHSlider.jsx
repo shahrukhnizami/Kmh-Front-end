@@ -5,31 +5,6 @@ import 'swiper/css';
 import 'swiper/css/navigation';
 import 'swiper/css/pagination';
 
-// Add this CSS for animations (can be placed in your global CSS file)
-const styles = `
-  @keyframes slideInLeft {
-    from { transform: translateX(-100px); opacity: 0; }
-    to { transform: translateX(0); opacity: 1; }
-  }
-  @keyframes slideInRight {
-    from { transform: translateX(100px); opacity: 0; }
-    to { transform: translateX(0); opacity: 1; }
-  }
-  @keyframes slideInUp {
-    from { transform: translateY(50px); opacity: 0; }
-    to { transform: translateY(0); opacity: 1; }
-  }
-  .animate-slideInLeft {
-    animation: slideInLeft 0.8s ease-out forwards;
-  }
-  .animate-slideInRight {
-    animation: slideInRight 0.8s ease-out 0.3s forwards;
-  }
-  .animate-slideInUp {
-    animation: slideInUp 0.8s ease-out 0.6s forwards;
-  }
-`;
-
 const slides = [
   {
     image: 'https://www.kmh.org.pk/img/1.jpg',
@@ -70,8 +45,53 @@ const slides = [
 
 const KMHSlider = () => {
   return (
-    <>
-      <style>{styles}</style>
+    <div className="relative">
+      {/* Inline styles for animations */}
+      <style jsx>{`
+        @keyframes slideInLeft {
+          from { transform: translateX(-50px); opacity: 0; }
+          to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes slideInRight {
+          from { transform: translateX(50px); opacity: 0; }
+          to { transform: translateX(0); opacity: 1; }
+        }
+        @keyframes slideInUp {
+          from { transform: translateY(30px); opacity: 0; }
+          to { transform: translateY(0); opacity: 1; }
+        }
+        .animate-slideInLeft {
+          animation: slideInLeft 0.8s ease-out forwards;
+        }
+        .animate-slideInRight {
+          animation: slideInRight 0.8s ease-out 0.3s forwards;
+        }
+        .animate-slideInUp {
+          animation: slideInUp 0.8s ease-out 0.6s forwards;
+        }
+        
+        /* Responsive height adjustments */
+        .swiper-container {
+          height: 70vh;
+          min-height: 400px;
+          max-height: 800px;
+        }
+        
+        @media (max-width: 768px) {
+          .swiper-container {
+            height: 60vh;
+            min-height: 350px;
+          }
+        }
+        
+        @media (max-width: 480px) {
+          .swiper-container {
+            height: 50vh;
+            min-height: 300px;
+          }
+        }
+      `}</style>
+
       <Swiper
         modules={[Autoplay, Navigation, Pagination]}
         loop={true}
@@ -88,45 +108,45 @@ const KMHSlider = () => {
           el: '.swiper-pagination',
           type: 'bullets',
         }}
-        className="relative w-6xl h-[80vh]"
+        className="swiper-container container mx-auto w-6xl h-full object-fill"
       >
         {slides.map((slide, index) => (
           <SwiperSlide key={index}>
             <div
-              className="container mx-auto  w-full h-full bg-cover bg-center flex items-center justify-center relative"
+              className="w-full h-full  bg-cover bg-center flex items-center relative"
               style={{ backgroundImage: `url(${slide.image})` }}
             >
-              {/* Dark overlay for better text visibility */}
-              <div className="absolute inset-0    bg-opacity-10"></div>
+              {/* Dark overlay with responsive opacity */}
+              <div className="absolute inset-0  bg-opacity-30 md:bg-opacity-20"></div>
               
-              {/* Content with staggered animations */}
-              
-              <div className="relative z-10 max-w-4xl px-4  mt-40 text-center">
-                <h2 className="text-3xl sm:text-4xl md:text-5xl font-bold mb-4 text-white opacity-0 animate-slideInLeft">
-                  {slide.title}
-                </h2>
-                <p className="text-lg md:text-xl mb-8 text-gray-100 opacity-0 animate-slideInRight">
-                  {slide.subtitle}
-                </p>
-                <a
-                  href={slide.buttonLink}
-                  className="inline-block bg-[#053e69] hover:bg-[#005b9f] text-white font-semibold py-3 px-8 rounded-lg transition duration-300 opacity-0 animate-slideInUp"
-                >
-                  {slide.button}
-                </a>
+              <div className="relative z-10 w-full px-4 sm:px-6 md:px-8 text-center">
+                <div className="max-w-4xl mx-auto">
+                  <h2 className="text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-bold mb-2 sm:mb-4 text-white opacity-0 animate-slideInLeft">
+                    {slide.title}
+                  </h2>
+                  <p className="text-base sm:text-lg md:text-xl mb-4 sm:mb-6 md:mb-8 text-gray-100 opacity-0 animate-slideInRight">
+                    {slide.subtitle}
+                  </p>
+                  <a
+                    href={slide.buttonLink}
+                    className="inline-block bg-[#053e69] hover:bg-[#005b9f] text-white font-medium sm:font-semibold py-2 px-6 sm:py-3 sm:px-8 rounded-lg transition duration-300 opacity-0 animate-slideInUp text-sm sm:text-base"
+                  >
+                    {slide.button}
+                  </a>
+                </div>
               </div>
-              </div>
+            </div>
           </SwiperSlide>
         ))}
 
-        {/* Custom navigation arrows */}
-        <div className="swiper-button-next text-white after:text-2xl"></div>
-        <div className="swiper-button-prev text-white after:text-2xl"></div>
+        {/* Custom navigation arrows - hidden on mobile */}
+        <div className="swiper-button-next hidden sm:flex !text-white after:text-xl md:after:text-2xl"></div>
+        <div className="swiper-button-prev hidden sm:flex !text-white after:text-xl md:after:text-2xl"></div>
         
-        {/* Custom pagination */}
-        <div className="swiper-pagination !bottom-6"></div>
+        {/* Custom pagination - smaller on mobile */}
+        <div className="swiper-pagination !bottom-4 sm:!bottom-6"></div>
       </Swiper>
-    </>
+    </div>
   );
 };
 
