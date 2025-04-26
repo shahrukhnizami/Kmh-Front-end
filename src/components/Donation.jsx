@@ -123,13 +123,13 @@ const Donation = () => {
       </div>
 
       <div className="container mx-auto max-w-6xl px-4 relative z-10">
-        <button
-          onClick={() => navigate('/')}
+       <Link to="https://www.kmh.org.pk"> <button
+          
           className="flex items-center justify-center px-6 py-3 bg-[#053e69] text-white rounded-lg hover:bg-[#005b9f] transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1"
         >
           <ArrowBigLeft className="h-5 w-5 mr-2" />
           Back to Home
-        </button>
+        </button></Link>
 
         <div className="text-center mb-12 mt-8">
           <span className="inline-block px-4 py-2 bg-blue-100 text-[#053e69] rounded-full text-sm font-semibold mb-4 shadow-sm">
@@ -137,7 +137,7 @@ const Donation = () => {
           </span>
           <h1 className="text-4xl md:text-5xl font-bold text-[#053e69] mb-4">
             Support <Link
-  to="/" 
+  to="https://www.kmh.org.pk/" 
   className="text-blue-600 hover:text-blue-800 hover:cursor-pointer transition-colors duration-200"
 >
   Kutiyana Memon Hospital
