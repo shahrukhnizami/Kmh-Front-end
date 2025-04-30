@@ -116,25 +116,13 @@ const Donation = () => {
     <section className="relative bg-gradient-to-br from-blue-50 to-white py-16 overflow-hidden">
       
       {/* Decorative elements */}
-      <div className="absolute top-0 left-0 w-full h-full opacity-10">
-        <div className="absolute top-20 left-10 w-40 h-40 bg-blue-200 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob"></div>
-        <div className="absolute top-40 right-20 w-48 h-48 bg-[#053e69] rounded-full mix-blend-multiply filter blur-xl opacity-50 animate-blob animation-delay-2000"></div>
-        <div className="absolute bottom-20 left-1/2 w-32 h-32 bg-blue-300 rounded-full mix-blend-multiply filter blur-xl opacity-70 animate-blob animation-delay-4000"></div>
-      </div>
+    
 
       <div className="container mx-auto max-w-6xl px-4 relative z-10">
-       <Link to="https://www.kmh.org.pk"> <button
-          
-          className="flex items-center justify-center px-6 py-3 bg-[#053e69] text-white rounded-lg hover:bg-[#005b9f] transition-all duration-300 shadow-md hover:shadow-lg transform hover:-translate-y-1"
-        >
-          <ArrowBigLeft className="h-5 w-5 mr-2" />
-          Back to Home
-        </button></Link>
+   
 
-        <div className="text-center mb-12 mt-8">
-          <span className="inline-block px-4 py-2 bg-blue-100 text-[#053e69] rounded-full text-sm font-semibold mb-4 shadow-sm">
-            Making a Difference Together
-          </span>
+        {/* <div className="text-center mb-12 mt-8">
+         
           <h1 className="text-4xl md:text-5xl font-bold text-[#053e69] mb-4">
             Support <Link
   to="https://www.kmh.org.pk/" 
@@ -147,7 +135,7 @@ const Donation = () => {
             Your generosity helps us provide life-saving healthcare to thousands every year.
             <span className="block mt-2 text-blue-600 font-medium">100% of donations go directly to patient care.</span>
           </p>
-        </div>
+        </div> */}
 
         <div className="flex flex-col lg:flex-row gap-10 items-start">
           {/* Donation Form Card */}
@@ -401,7 +389,7 @@ const Donation = () => {
               </ul>
             </div>
 
-            <div className="bg-gradient-to-r from-[#053e69] to-blue-600 p-6 rounded-2xl shadow-lg text-white transform hover:scale-[1.01] transition-transform duration-300">
+            {/* <div className="bg-gradient-to-r from-[#053e69] to-blue-600 p-6 rounded-2xl shadow-lg text-white transform hover:scale-[1.01] transition-transform duration-300">
               <h3 className="text-xl font-bold mb-4 flex items-center">
                 <Calendar className="h-6 w-6 mr-2" />
                 Monthly Giving
@@ -411,7 +399,7 @@ const Donation = () => {
                 <Calendar className="h-5 w-5 mr-2" />
                 Set Up Monthly Donation
               </button>
-            </div>
+            </div> */}
 
             <div className="bg-white p-6 rounded-2xl shadow-lg border border-blue-100 transform hover:scale-[1.01] transition-transform duration-300">
               <h3 className="text-xl font-bold text-[#053e69] mb-4 flex items-center">

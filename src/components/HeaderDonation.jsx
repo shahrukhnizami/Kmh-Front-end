@@ -1,7 +1,7 @@
 import React, { useState } from "react";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 
-const Header = () => {
+const HeaderDonation = () => {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -51,13 +51,14 @@ const Header = () => {
       <div className="container mx-auto flex justify-center items-center py-4  max-w-6xl">
         <div className="container mx-auto flex justify-center items-center py-4 max-w-6xl">
           <div className="text-center w-full md:w-auto">
-            <button onClick={() => handleNavigation("/")}>
+           <Link to="https://www.kmh.org.pk/"> 
+           <button >
               <img
                 src="https://www.kmh.org.pk/images/KMHLOGO.png"
                 alt="KMH Logo"
                 className="h-[100px] mx-auto md:mx-0 cursor-pointer"
               />
-            </button>
+            </button></Link>
           </div>
         </div>
 
@@ -79,71 +80,7 @@ const Header = () => {
       </div>
 
       {/* Navigation */}
-      <nav className="bg-[#053e69]">
-        <div className="container mx-auto max-w-6xl">
-          {/* Desktop Navigation */}
-          <ul className="hidden lg:flex flex-wrap justify-between text-white text-sm font-medium py-3 px-2 space-x-1">
-            <li>
-              <button
-                onClick={() => handleNavigation("/")}
-                className="px-3 py-2 rounded-md transition-all duration-200 hover:bg-[#0088cc] hover:text-white block"
-              >
-                Home
-              </button>
-            </li>
-            {navLinks.map((link) => (
-              <li key={link.path}>
-                <button
-                  onClick={() => handleNavigation(link.path)}
-                  className="px-1 py-2 rounded-md transition-all duration-200 hover:bg-[#0088cc] hover:text-white block"
-                >
-                  {link.name}
-                </button>
-              </li>
-            ))}
-            <li>
-              <button
-                onClick={() => handleNavigation("/donation")}
-                className="px-3 py-2 rounded-md transition-all duration-200 hover:bg-[#0088cc] hover:text-white block"
-              >
-                Donation
-              </button>
-            </li>
-          </ul>
-
-          {/* Mobile Navigation */}
-          {mobileMenuOpen && (
-            <ul className="lg:hidden flex flex-col text-white text-sm font-medium py-2 px-4">
-              <li>
-                <button
-                  onClick={() => handleNavigation("/")}
-                  className="w-full text-left px-3 py-3 rounded-md transition-all duration-200 hover:bg-[#0088cc] hover:text-white block border-b border-[#2a5a83]"
-                >
-                  Home
-                </button>
-              </li>
-              {navLinks.map((link) => (
-                <li key={link.path}>
-                  <button
-                    onClick={() => handleNavigation(link.path)}
-                    className="w-full text-left px-3 py-3 rounded-md transition-all duration-200 hover:bg-[#0088cc] hover:text-white block border-b border-[#2a5a83]"
-                  >
-                    {link.name}
-                  </button>
-                </li>
-              ))}
-              <li>
-                <button
-                  onClick={() => handleNavigation("/donation")}
-                  className="w-full text-left px-3 py-3 rounded-md transition-all duration-200 hover:bg-[#0088cc] hover:text-white block border-b border-[#2a5a83]"
-                >
-                  Donation
-                </button>
-              </li>
-            </ul>
-          )}
-        </div>
-      </nav>
+     
 
       {/* Marquee */}
       <div className="py-2">
@@ -159,4 +96,4 @@ const Header = () => {
   );
 };
 
-export default Header;
+export default HeaderDonation;
