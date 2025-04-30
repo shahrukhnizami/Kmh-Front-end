@@ -355,7 +355,7 @@ const Donation = () => {
                   )}
                 </button>
                 <p className="mt-3 text-center text-xs text-gray-500">
-                  Your donation is secure and tax-deductible. By donating, you agree to our <a href="#" className="text-blue-600 hover:underline">Terms of Service</a> and <a href="#" className="text-blue-600 hover:underline">Privacy Policy</a>.
+                  Your donation is secure and tax-deductible. By donating, you agree to our <a href="terms-condition" className="text-blue-600 hover:underline">Terms of Service</a> and <a href="terms-condition" className="text-blue-600 hover:underline">Privacy Policy</a>.
                 </p>
               </div>
             </form>
@@ -408,13 +408,13 @@ const Donation = () => {
               </h3>
               <div className="space-y-4">
                 {[
+                  // { 
+                  //   quote: "This is a pic of the hospital's OPD. It's usually crowded and you can hardly find a place to sit. The reason for that, in my view, is the number of family members accompanying a patient. Otherwise, the staff at the OPD is efficient, especially that at the counter. The other staff ensures that those on stretchers are given passage in the congested space.",
+                  //   author: "Bilal Farooqi, Karachi"
+                  // },
                   { 
-                    quote: "The hospital provided excellent care for my mother when we couldn't afford treatment elsewhere. Donations truly make a difference.",
-                    author: "Ahmed R., Karachi"
-                  },
-                  { 
-                    quote: "As a regular donor, I've seen firsthand how my contributions help save lives in our community.",
-                    author: "Fatima S., Donor since 2018"
+                    quote: "Kutiyana Hospital is the best in Kharadhar. It's situated opposite Aga Khan Jamaitkhana and Sabzwari Garden beside Bukhari Baba mausoleum. As compared to luxury hospital, it's charges are reasonable. They also help the poor patients from Zakat funds. Fadoo Tower of British era is also visible at entrance gate. There is also a Masjid inside. There is heart check up ward for Rs:300/- to 500/- only",
+                    author: "Ahmed Sunghaar, Karachi"
                   }
                 ].map((testimonial, index) => (
                   <blockquote key={index} className="border-l-4 border-[#053e69] pl-4 italic text-gray-700 relative">

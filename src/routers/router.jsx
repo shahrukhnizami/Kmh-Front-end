@@ -6,6 +6,7 @@ import Demo from '../pages/Demo.jsx';
 import PaymentSuccess from '../components/PaymentSucess.jsx';
 import PaymentFailure from '../components/PaymentFailure.jsx';
 import PaymentNotify from '../components/PaymentNotify.jsx';
+import TermsAndPrivacy from '../pages/TermsAndPrivacy.jsx';
 
 
 
@@ -14,6 +15,7 @@ const AppRouter = () => {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<Home />} />
+        <Route path="terms-condition" element={<TermsAndPrivacy />} />
         <Route path="/donation" element={<DonationPage />} />
         <Route path="/demo" element={<Demo />} />
         <Route path="/donation/success" element={<PaymentSuccess />} />

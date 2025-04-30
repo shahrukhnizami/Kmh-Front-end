@@ -29,7 +29,7 @@ const HeaderDonation = () => {
   return (
     <div className="bg-white shadow-md">
       {/* Top Links */}
-      <div className="hidden md:flex py-2 justify-end items-center px-4 text-sm text-blue-600 ">
+      {/* <div className="hidden md:flex py-2 justify-end items-center px-4 text-sm text-blue-600 ">
         <div className="container mx-auto w-full max-w-6xl flex justify-end">
           <div className="flex space-x-4">
             <button onClick={() => handleNavigation("/welfare")} className="hover:underline ">
@@ -45,7 +45,7 @@ const HeaderDonation = () => {
             </button>
           </div>
         </div>
-      </div>
+      </div> */}
 
       {/* Logo */}
       <div className="container mx-auto flex justify-center items-center py-4  max-w-6xl">
